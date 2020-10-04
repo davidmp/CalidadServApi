@@ -1,7 +1,6 @@
 package pe.edu.upeu.controller;
 
 import pe.edu.upeu.dto.Mensaje;
-//import pe.edu.upeu.dto.ProductoDto;
 import pe.edu.upeu.model.Producto;
 import pe.edu.upeu.service.ProductoService;
 import org.apache.commons.lang3.StringUtils;

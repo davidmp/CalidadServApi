@@ -42,7 +42,7 @@ public class ProductoController {
         return new ResponseEntity(producto, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody Producto productoDto){
         if(StringUtils.isBlank(productoDto.getNombre()))
@@ -57,7 +57,7 @@ public class ProductoController {
         return new ResponseEntity(new Mensaje("producto creado"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id")int id, @RequestBody Producto productoDto){
         if(!productoService.existsById(id))
@@ -76,7 +76,7 @@ public class ProductoController {
         return new ResponseEntity(new Mensaje("producto actualizado"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id")int id){
         if(!productoService.existsById(id))

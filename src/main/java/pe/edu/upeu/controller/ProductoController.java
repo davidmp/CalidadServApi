@@ -25,6 +25,13 @@ public class ProductoController {
         List<Producto> list = productoService.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
+	
+	@PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/lista2")
+    public ResponseEntity<List<Producto>> list2(){
+        List<Producto> list = productoService.list();
+        return new ResponseEntity(list, HttpStatus.OK);
+    }	
 
     @GetMapping("/detail/{id}")
     public ResponseEntity<Producto> getById(@PathVariable("id") int id){

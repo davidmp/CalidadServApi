@@ -71,6 +71,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/periodo/**").permitAll()
 				.antMatchers("/producto/**").permitAll()
 				.antMatchers("/area/**").permitAll()
+				.antMatchers("/categorClient/**").permitAll()
 				.antMatchers("/subarea/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -78,5 +79,13 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+       /* http
+      .logout()
+      .logoutUrl("/signout")   // Specifies the logout URL, default URL is '/logout'
+      .logoutSuccessHandler((req,res,auth)->{   // Logout handler called after successful logout 
+         req.getSession().setAttribute("message", "You are logged out successfully.");
+         res.sendRedirect(req.getContextPath()+"/login"); // Redirect user to login page with message.
+      })
+      .deleteCookies("JSESSIONID");*/
     }
 }
